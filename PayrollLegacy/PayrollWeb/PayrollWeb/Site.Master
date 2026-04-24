@@ -1,0 +1,80 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="PayrollWeb.SiteMaster" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> — Acme Payroll</title>
+    <style type="text/css">
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; font-size: 13px; background: #f0f0f0; color: #333; }
+        #header { background: #1a3a5c; color: white; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; }
+        #header h1 { font-size: 18px; font-weight: bold; }
+        #header .user-info { font-size: 12px; color: #aaccee; }
+        #nav { background: #2a5080; padding: 0 20px; }
+        #nav ul { list-style: none; display: flex; }
+        #nav ul li a { display: block; padding: 10px 16px; color: #ddeeff; text-decoration: none; font-size: 13px; }
+        #nav ul li a:hover, #nav ul li a.active { background: #1a3a5c; color: white; }
+        #main { padding: 20px; max-width: 1200px; margin: 0 auto; }
+        #footer { background: #1a3a5c; color: #88aacc; text-align: center; padding: 8px; font-size: 11px; margin-top: 30px; }
+        h2 { font-size: 16px; color: #1a3a5c; border-bottom: 2px solid #2a5080; padding-bottom: 6px; margin-bottom: 14px; }
+        .panel { background: white; border: 1px solid #ccc; padding: 16px; margin-bottom: 16px; }
+        .panel h3 { font-size: 14px; color: #2a5080; margin-bottom: 10px; }
+        table.grid { width: 100%; border-collapse: collapse; font-size: 12px; }
+        table.grid th { background: #2a5080; color: white; padding: 6px 8px; text-align: left; }
+        table.grid td { padding: 5px 8px; border-bottom: 1px solid #e0e0e0; }
+        table.grid tr:nth-child(even) td { background: #f7f7f7; }
+        table.grid tr:hover td { background: #eef4ff; }
+        .btn { display: inline-block; padding: 6px 14px; background: #2a5080; color: white; border: none; cursor: pointer; font-size: 13px; text-decoration: none; }
+        .btn:hover { background: #1a3a5c; }
+        .btn-danger { background: #c0392b; }
+        .btn-danger:hover { background: #922b21; }
+        .btn-success { background: #1a7a3c; }
+        .btn-success:hover { background: #0e5028; }
+        .btn-warning { background: #b7770a; }
+        input[type=text], input[type=date], select, textarea {
+            border: 1px solid #aaa; padding: 5px 7px; font-size: 13px; width: 100%; }
+        .form-row { display: flex; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+        .form-group { flex: 1; min-width: 160px; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 3px; font-size: 12px; color: #555; }
+        .alert { padding: 10px 14px; margin-bottom: 12px; border: 1px solid; }
+        .alert-error   { background: #fde; border-color: #e55; color: #900; }
+        .alert-success { background: #dfd; border-color: #5a5; color: #060; }
+        .alert-info    { background: #def; border-color: #68b; color: #036; }
+        .stat-card { background: white; border-left: 4px solid #2a5080; padding: 12px 16px; margin: 8px; flex: 1; min-width: 160px; }
+        .stat-card .value { font-size: 24px; font-weight: bold; color: #1a3a5c; }
+        .stat-card .label { font-size: 11px; color: #777; margin-top: 3px; }
+        .stats-row { display: flex; flex-wrap: wrap; margin: 0 -8px 16px; }
+        .status-1 { color: #1a7a3c; font-weight: bold; }
+        .status-2 { color: #b7770a; }
+        .status-3 { color: #c0392b; }
+        .status-4 { color: #7a1a1a; }
+        .status-5 { color: #1a3a5c; }
+        .status-6 { color: #888; text-decoration: line-through; }
+    </style>
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server" />
+</head>
+<body>
+    <div id="header">
+        <h1>&#128197; Acme Corporation — Payroll System</h1>
+        <div class="user-info">Logged in as: <strong><asp:Literal ID="litUser" runat="server" /></strong></div>
+    </div>
+    <div id="nav">
+        <ul>
+            <li><a href="Default.aspx" id="navDashboard" runat="server">Dashboard</a></li>
+            <li><a href="Employees.aspx" id="navEmployees" runat="server">Employees</a></li>
+            <li><a href="PayrollRun.aspx" id="navPayroll" runat="server">Payroll Run</a></li>
+            <li><a href="Deductions.aspx" id="navDeductions" runat="server">Deductions</a></li>
+            <li><a href="Reports.aspx" id="navReports" runat="server">Reports</a></li>
+            <li><a href="PeriodClose.aspx" id="navPeriodClose" runat="server">Period Close</a></li>
+        </ul>
+    </div>
+    <div id="main">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+    </div>
+    <div id="footer">
+        Acme Payroll v1.0 &nbsp;|&nbsp; ASP.NET 4.8 Web Forms &nbsp;|&nbsp; SQL Server 2019
+        &nbsp;|&nbsp; &copy; 2024 Acme Corporation
+    </div>
+</body>
+</html>
